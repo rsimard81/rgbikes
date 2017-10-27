@@ -3,8 +3,8 @@ var dataCacheName = 'weatherData-v1';
 var filesToCache = [
     '/',
     'index.html',
-    'docs/scripts/app.js',
-    'docs/styles/inline.css',
+    'scripts/app.js',
+    'styles/inline.css',
     'images/clear.png',
     'images/cloudy-scattered-showers.png',
     'images/cloudy.png',
