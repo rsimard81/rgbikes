@@ -1,0 +1,7 @@
+{
+  "name": "RGBikes",
+  "short_name": "RGBikes",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait"
+}
