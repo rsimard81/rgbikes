@@ -55,60 +55,47 @@
     -->
   </head>
   <body>
-     <!-- Uses a header that contracts as the page scrolls down. -->
-    <style>
-        .demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
-          padding-right: 0;
-        }
-        </style>
-        
-    <div class="demo-layout-waterfall mdl-layout mdl-js-layout">
-      <header class="mdl-layout__header mdl-layout__header--waterfall">
-        <!-- Top row, always visible -->
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <span class="mdl-layout-title">RG Bikes</span>
-          <div class="mdl-layout-spacer"></div>
-          <div id="user-container">
-              <div hidden id="user-pic"></div>
-              <div hidden id="user-name"></div>
-              <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
-                Sign-out
-              </button>
-              <button hidden id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
-                <i class="material-icons">account_circle</i>Sign-in with Google
-              </button>
-            </div>
+
+    <!-- Simple header with scrollable tabs. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+          <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">RGBikes</span>
+            <div id="user-container">
+                <div hidden id="user-pic"></div>
+                <div hidden id="user-name"></div>
+                <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+                  Sign-out
+                </button>
+                <button hidden id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+                  <i class="material-icons">account_circle</i>Sign-in with Google
+                </button>
+              </div>
+          </div>
+          <!-- Tabs -->
+          <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+            <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Users Online</a>
+            <a href="#scroll-tab-2" class="mdl-layout__tab">Training</a>
+            <a href="#scroll-tab-3" class="mdl-layout__tab">Challenge</a>
+          </div>
+        </header>
+        <div class="mdl-layout__drawer">
+          <span class="mdl-layout-title">Title</span>
         </div>
-        <!-- Bottom row, not visible on scroll -->
-        <div class="mdl-layout__header-row">
-          <!--<div class="mdl-layout-spacer"></div> -->
-          <!-- Navigation -->
-          <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-          </nav>
-        </div>
-      </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Title</span>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-        </nav>
+       
+        <main class="mdl-layout__content">
+          <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+            <div class="page-content"><!-- Your content goes here --></div>
+          </section>
+          <section class="mdl-layout__tab-panel" id="scroll-tab-2">
+            <div class="page-content"><!-- Your content goes here --></div>
+          </section>
+          <section class="mdl-layout__tab-panel" id="scroll-tab-3">
+            <div class="page-content"><!-- Your content goes here --></div>
+          </section>
+        </main>
       </div>
-      <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
-          <div class="mdl-snackbar__text"></div>
-          <button class="mdl-snackbar__action" type="button"></button>
-        </div>
-      <main class="mdl-layout__content">
-        <div class="page-content"><!-- Your content goes here --></div>
-      </main>
-    </div>
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/4.6.0/firebase-app.js"></script>

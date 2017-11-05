@@ -1,6 +1,6 @@
 'use strict';
 
-// Initializes FriendlyChat.
+// Initializes RGBikes
 function RGBikes() {
     this.checkSetup();
   
@@ -10,6 +10,9 @@ function RGBikes() {
     this.signInButton = document.getElementById('sign-in');
     this.signOutButton = document.getElementById('sign-out');
     this.signInSnackbar = document.getElementById('must-signin-snackbar');
+
+    this.signOutButton.addEventListener('click', this.signOut.bind(this));
+    this.signInButton.addEventListener('click', this.signIn.bind(this));
   
     this.initFirebase();
   }
