@@ -27,14 +27,27 @@ RGBikes.prototype.initFirebase = function() {
     this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
   };
 
-  // Signs-in Friendly Chat.
+  RGBikes.prototype.initdbuser = function(user) {
+    this.dbuser = this.database.ref('users/' + user.uid);
+
+    this.dbuser.update({
+        'name' : user.displayName,
+        'photoUrl' : user.photoURL || '/images/profile_placeholder.png',
+      });
+
+    this.presence = this.database.ref('users/' + user.uid + '/presence')
+    this.presence.onDisconnect().remove();
+    this.presence.set(true);
+  }
+
+  // Signs-in RGBikes.
   RGBikes.prototype.signIn = function() {
     // Sign in Firebase using popup auth and Google as the identity provider.
     var provider = new firebase.auth.GoogleAuthProvider();
     this.auth.signInWithPopup(provider);
 };
 
-// Signs-out of Friendly Chat.
+// Signs-out of RGBikes.
 RGBikes.prototype.signOut = function() {
    // Sign out of Firebase.
    this.auth.signOut();
@@ -58,6 +71,9 @@ RGBikes.prototype.onAuthStateChanged = function(user) {
 
     // Hide sign-in button.
     this.signInButton.setAttribute('hidden', 'true');
+
+    this.initdbuser(user);
+    this.setupPresence(user);
 
   } else { // User is signed out!
     // Hide user's profile and sign-out button.
