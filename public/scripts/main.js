@@ -73,7 +73,6 @@ RGBikes.prototype.onAuthStateChanged = function(user) {
     this.signInButton.setAttribute('hidden', 'true');
 
     this.initdbuser(user);
-    this.setupPresence(user);
 
   } else { // User is signed out!
     // Hide user's profile and sign-out button.
@@ -84,6 +83,56 @@ RGBikes.prototype.onAuthStateChanged = function(user) {
     // Show sign-in button.
     this.signInButton.removeAttribute('hidden');
   }
+
+  this.updateUserList();
+};
+
+// Returns true if user is signed-in. Otherwise false.
+RGBikes.prototype.checkSignedIn = function() {
+    if (this.auth.currentUser) {
+      return true;
+    }
+};
+
+RGBikes.prototype.updateUserList = function() {
+  //make sure the user is signed in
+  if (!this.checkSignedIn())
+    return;
+
+  //test generate list
+  var users_tab = document.getElementById("users_online_tab");
+
+  var listNode = document.createElement('div');
+  //var attrib = document.createAttribute("class");
+  //listNode.nodeValue = "demo-list-action mdl-list";
+  listNode.setAttribute("class", "demo-list-action mdl-list");
+
+  users_tab.appendChild(listNode);
+
+  //this.ListCreateUser(listNode, this.auth.currentUser.displayName, this.auth.currentUser.profilePicUrl, this.dbuser.presence);
+  this.ListCreateUser(listNode, "Gui", this.auth.currentUser.profilePicUrl, this.dbuser.presence);
+  this.ListCreateUser(listNode, "Bob", this.auth.currentUser.profilePicUrl, this.dbuser.presence);
+};
+
+RGBikes.prototype.ListCreateUser = function(parent, name, pic, presence) {
+
+  var listItem = document.createElement('div');
+  listItem.setAttribute("class", "mdl-list__item");
+  parent.appendChild(listItem);
+
+  var itemContent = document.createElement('span');
+  itemContent.setAttribute("class", "mdl-list__item-primary-content");
+  listItem.appendChild(itemContent);
+
+  var person = document.createElement('i');
+  person.setAttribute("class", "material-icons mdl-list__item-avatar");
+  person.nodeValue = 'person';
+  itemContent.appendChild(person);
+
+  var username = document.createElement('span');
+  username.nodeValue = name;
+  itemContent.appendChild(username);
+
 };
 
   // Checks that the Firebase SDK has been correctly setup and configured.
