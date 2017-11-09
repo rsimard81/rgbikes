@@ -100,15 +100,14 @@ RGBikes.prototype.updateUserList = function() {
     return;
 
   //test generate list
-  var users_tab = document.getElementById("users_online_tab");
+ var users_tab = document.getElementById("users_online_tab");
 
   var listNode = document.createElement('div');
-  //var attrib = document.createAttribute("class");
-  //listNode.nodeValue = "demo-list-action mdl-list";
   listNode.setAttribute("class", "demo-list-action mdl-list");
 
   users_tab.appendChild(listNode);
 
+  //gaga tmp : temp list need to fetch from db
   //this.ListCreateUser(listNode, this.auth.currentUser.displayName, this.auth.currentUser.profilePicUrl, this.dbuser.presence);
   this.ListCreateUser(listNode, "Gui", this.auth.currentUser.profilePicUrl, this.dbuser.presence);
   this.ListCreateUser(listNode, "Bob", this.auth.currentUser.profilePicUrl, this.dbuser.presence);
@@ -130,8 +129,10 @@ RGBikes.prototype.ListCreateUser = function(parent, name, pic, presence) {
   itemContent.appendChild(person);
 
   var username = document.createElement('span');
-  username.nodeValue = name;
   itemContent.appendChild(username);
+
+  var usernameText = document.createTextNode(name);
+  username.appendChild(usernameText);
 
 };
 
