@@ -1,0 +1,32 @@
+Base
+
+bob - Afficher vraie liste user
+gaudet - Support Ant+
+gaudet - Enregistrer cadence + vitesse
+gaudet - Enregistrer Virtual Power
+bob - Afficher cadence + vitesse
+bob - Afficher Virtual Power
+bob - Interface setup gear (connecter compteurs, trainer, etc...)
+Systeme de début/fin (avec UI)
+Training - pouvoir choisir notre temps d'entrainement
+gaudet - Enregistrer historique de nos performances
+
+
+
+
+Profil / User
+Systeme de profil / rider (age, poids, grandeur, etc...)
+Afficher historique de nos performances
+Supporter autres methodes de login
+Pouvoir changer/resetter password
+Systeme de friends (pouvoir creer des groupes)
+
+
+
+Challenge
+
+Afficher riders sur une map
+Faire avancer rider sur la map (selon vitesse/cadence/vpower)
+Challenge friends async
+Design your own ride
+
